@@ -5,12 +5,12 @@
   },
   "CHECKS": {
     "prefixes": [],
-    "regexp": "^[a-zA-Z]/[0-9]+ - .+$",
+    "regexp": "^[a-zA-Z]+/+[x0-9]+ - .*",
     "regexpFlags": "i",
     "ignoreLabels": []
   },
   "MESSAGES": {
     "success": "All OK",
-    "failure": "Invalid PR title. Please use the format '[a-Z]/[0-9] - [description]'."
+    "failure": "Invalid PR title. Please use the format '[feature/hotfix/story/bug/task]/[can be x or number] - [description]'."
   }
 }
