@@ -1,5 +1,7 @@
 import { memo } from 'react';
+
 import { Box, Grid, Pagination } from '@mui/material';
+
 import { JobCard } from '@/features';
 import { mockCards } from '@/utils';
 
@@ -21,15 +23,7 @@ export const JobCards = memo(() => {
     <Box className="flex-1 bg-white dark:bg-black">
       <Grid container spacing={2}>
         {mockCards.map((cardData) => (
-          <JobCard
-            key={cardData.id}
-            logo={cardData.logo}
-            hiringCompany={cardData.hiringCompany}
-            createdDate={cardData.createdDate}
-            position={cardData.position}
-            location={cardData.location}
-            jobDescription={cardData.jobDescription}
-          />
+          <JobCard key={cardData.id} {...cardData} />
         ))}
       </Grid>
       <Pagination

@@ -1,5 +1,14 @@
 import { memo } from 'react';
-import { Box, Checkbox, Divider, FormControlLabel, FormGroup, Typography } from '@mui/material';
+
+import {
+  Box,
+  Checkbox,
+  Divider,
+  FormControlLabel,
+  FormGroup,
+  Typography
+} from '@mui/material';
+
 import { details } from '@/utils';
 
 const checkboxTheme = {

@@ -1,19 +1,18 @@
-import { memo, useEffect } from 'react';
+import { memo } from 'react';
 import { Outlet } from 'react-router-dom';
-import { StyledEngineProvider } from '@mui/material';
+
+import { Box, StyledEngineProvider } from '@mui/material';
+
 import { Content, Footer, Header, NavigationBar, Toast } from '@/components';
-import { LocationDropdown, HeaderAvatar } from '@/features';
+import { HeaderAvatar, LocationDropdown } from '@/features';
+import { useTopScroll } from '@/hooks';
 
 export const App = memo(() => {
-  useEffect(() => {
-    window.onbeforeunload = function () {
-      window.scrollTo(0, 0);
-    };
-  }, []);
+  useTopScroll();
 
   return (
     <>
-      <div className="mb-36 bg-white z-20 dark:bg-black">
+      <Box className="mb-36 bg-white z-20 dark:bg-black">
         <StyledEngineProvider injectFirst>
           <Header>
             <Content className="flex justify-between items-center space-x-2">
@@ -25,7 +24,7 @@ export const App = memo(() => {
           <Outlet />
           <Toast />
         </StyledEngineProvider>
-      </div>
+      </Box>
       <Footer />
     </>
   );

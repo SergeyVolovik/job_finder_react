@@ -7,7 +7,10 @@ const initialNotificationMessagesState = {
   messages: 0
 };
 
-const counterFavoritesReducer = (state = initialFavoritesState, action: any) => {
+const counterFavoritesReducer = (
+  state = initialFavoritesState,
+  action: any
+) => {
   switch (action.type) {
     case 'INCREMENT_FAVORITE':
       return { favorites: state.favorites + 1 };

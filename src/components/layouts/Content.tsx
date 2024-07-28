@@ -1,5 +1,6 @@
 import { Container } from '@mui/material';
-import { LayoutProps } from '@/types';
+
+import { LayoutProps } from '@/interfaces';
 
 export const Content = ({ className, children }: LayoutProps) => {
   return (

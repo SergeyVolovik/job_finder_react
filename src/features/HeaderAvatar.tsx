@@ -1,15 +1,19 @@
-import React, { MouseEvent, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { MouseEvent, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Notifications, Work, ArrowDropDown } from '@mui/icons-material';
+import { NavLink } from 'react-router-dom';
+
+import { ArrowDropDown, Notifications, Work } from '@mui/icons-material';
 import { Avatar, Box, Menu, MenuItem, Typography } from '@mui/material';
+
 import { IconBtnWithBadge, SwitchMode } from '@/features';
 
 export const HeaderAvatar = () => {
   const notificationMessages = useSelector(
     (state: any) => state.counterNotificationMessages.messages
   );
-  const favorites = useSelector((state: any) => state.counterFavorites.favorites);
+  const favorites = useSelector(
+    (state: any) => state.counterFavorites.favorites
+  );
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
   const handleClick = (event: MouseEvent<HTMLElement>) => {
@@ -23,14 +27,17 @@ export const HeaderAvatar = () => {
     <Box className="flex items-center space-x-4">
       <Box className="flex items-center space-x-1">
         <SwitchMode />
-        <IconBtnWithBadge title="Notifications" badgeContent={notificationMessages}>
+        <IconBtnWithBadge
+          title="Notifications"
+          badgeContent={notificationMessages}
+        >
           <Notifications className="fill-orange" />
         </IconBtnWithBadge>
         <IconBtnWithBadge title="Favorite jobs" badgeContent={favorites}>
           <Work className="fill-blue" />
         </IconBtnWithBadge>
       </Box>
-      <div
+      <Box
         id="basic-button"
         className="group flex align-center space-x-4 cursor-pointer"
         onClick={handleClick}
@@ -47,7 +54,7 @@ export const HeaderAvatar = () => {
           </Box>
           <ArrowDropDown className="fill-gray relative -top-1 group-hover:fill-black" />
         </Box>
-      </div>
+      </Box>
       <Menu
         id="basic-menu"
         anchorEl={anchorEl}

@@ -1,5 +1,6 @@
 import { AppBar } from '@mui/material';
-import { LayoutProps } from '@/types';
+
+import { LayoutProps } from '@/interfaces';
 
 export const Header = ({ children }: LayoutProps) => {
   return (
