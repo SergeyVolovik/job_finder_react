@@ -5,7 +5,7 @@
   },
   "CHECKS": {
     "prefixes": [],
-    "regexp": "^[a-zA-Z0-9]/[x0-9]+ - .*",
+    "regexp": "^[a-zA-Z]+/+[x0-9]+ - .*",
     "regexpFlags": "i",
     "ignoreLabels": []
   },
