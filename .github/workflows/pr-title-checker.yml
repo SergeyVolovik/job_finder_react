@@ -1,21 +1,19 @@
-name: PR Title Checker
-
+name: 'PR Title Checker'
 on:
   pull_request:
-    types: [opened, edited, synchronize]
+    types:
+      - opened
+      - edited
+      - synchronize
+      - labeled
+      - unlabeled
 
 jobs:
-  pr-title-check:
+  check:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Run PR Title Checker
-        uses: peter-evans/create-pull-request@v3
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: thehanimo/pr-title-checker@v1.3.4
         with:
-          title: ${{ github.event.pull_request.title }}
-          config-file: .github/pr-title-checker-config.json
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          pass_on_octokit_error: false
+          configuration_path: '.github/pr-title-checker-config.json'
