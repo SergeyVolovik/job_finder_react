@@ -1,5 +1,6 @@
 import { Box } from '@mui/material';
-import { LayoutProps } from '@/types';
+
+import { LayoutProps } from '@/interfaces';
 
 export const SideBar = ({ className, children }: LayoutProps) => {
   return (

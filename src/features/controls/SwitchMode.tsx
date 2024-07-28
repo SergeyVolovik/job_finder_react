@@ -1,5 +1,6 @@
 import { DarkMode, LightMode } from '@mui/icons-material';
 import { IconButton, Tooltip, Zoom } from '@mui/material';
+
 import { useDarkMode } from '@/hooks';
 
 /**
@@ -17,7 +18,10 @@ export const SwitchMode = () => {
   );
 
   return (
-    <Tooltip title={isDarkMode ? 'Dark Mode' : 'Light Mode'} TransitionComponent={Zoom}>
+    <Tooltip
+      title={isDarkMode ? 'Dark Mode' : 'Light Mode'}
+      TransitionComponent={Zoom}
+    >
       <IconButton onClick={toggleDarkMode}>{icon}</IconButton>
     </Tooltip>
   );

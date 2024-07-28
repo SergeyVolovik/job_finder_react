@@ -1,5 +1,7 @@
 import { memo, useCallback, useEffect, useState } from 'react';
+
 import { Box, Divider, Slider, TextField, Typography } from '@mui/material';
+
 import { Content } from '@/components';
 
 const range = [0, 99999];

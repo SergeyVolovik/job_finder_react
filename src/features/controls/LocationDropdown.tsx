@@ -1,6 +1,7 @@
-import { Box, Typography } from '@mui/material';
 import FmdGoodIcon from '@mui/icons-material/FmdGood';
-import { LocationDropdownProps } from '@/types';
+import { Box, Typography } from '@mui/material';
+
+import { LocationDropdownProps } from '@/interfaces';
 
 export const LocationDropdown = ({ className }: LocationDropdownProps) => {
   return (

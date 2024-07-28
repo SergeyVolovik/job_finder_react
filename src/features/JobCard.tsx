@@ -1,6 +1,7 @@
-import { useCallback, useState, memo } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { useStore } from 'react-redux';
 import { toast } from 'react-toastify';
+
 import { Work, WorkOutline } from '@mui/icons-material';
 import {
   Avatar,
@@ -13,21 +14,24 @@ import {
   Grid,
   Typography
 } from '@mui/material';
-import { BtnVariant, CardProps } from '@/types';
+
 import { Button } from '@/components';
+import { BtnVariant, CardProps } from '@/interfaces';
 import { toastMessage } from '@/utils';
 
 export const JobCard = memo(
   ({ logo, createdDate, position, location, jobDescription }: CardProps) => {
     const store = useStore();
     const [checkStatus, setCheckStatus] = useState(true);
-    const message = checkStatus ? toastMessage.addFavorite : toastMessage.removedFavorite;
+    const message = checkStatus
+      ? toastMessage.addFavorite
+      : toastMessage.removedFavorite;
 
     const handleCheck = useCallback(() => {
+      const action = checkStatus ? 'INCREMENT_FAVORITE' : 'DECREMENT_FAVORITE';
+
       setCheckStatus(!checkStatus);
       toast.info(message);
-
-      const action = checkStatus ? 'INCREMENT_FAVORITE' : 'DECREMENT_FAVORITE';
       store.dispatch({ type: action });
     }, [checkStatus]);
 
@@ -50,7 +54,10 @@ export const JobCard = memo(
               <Typography variant="h6" className="truncate">
                 {position}
               </Typography>
-              <Typography variant="subtitle1" className="whitespace-nowrap text-blue">
+              <Typography
+                variant="subtitle1"
+                className="whitespace-nowrap text-blue"
+              >
                 12 replies
               </Typography>
             </Box>
@@ -63,7 +70,11 @@ export const JobCard = memo(
               <Typography variant="subtitle1" className="font-medium">
                 {location}
               </Typography>
-              <Typography component="span" variant="body2" className="text-gray line-clamp-3">
+              <Typography
+                component="span"
+                variant="body2"
+                className="text-gray line-clamp-3"
+              >
                 {jobDescription}
               </Typography>
             </Box>

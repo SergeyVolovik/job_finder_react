@@ -1,8 +1,10 @@
 import { NavLink } from 'react-router-dom';
+
 import { Box, Typography } from '@mui/material';
+
 import { finderLogo } from '@/assets';
 import { Logo } from '@/components/ui';
-import { LayoutProps } from '@/types';
+import { LayoutProps } from '@/interfaces';
 
 export const NavigationBar = ({ children }: LayoutProps) => {
   const getActiveClass = (isActive: boolean) => {
@@ -20,10 +22,16 @@ export const NavigationBar = ({ children }: LayoutProps) => {
         </Typography>
       </NavLink>
       <Box className="flex items-center space-x-8 lg:space-x-20">
-        <NavLink to="/search" className={({ isActive }) => getActiveClass(isActive)}>
+        <NavLink
+          to="/search"
+          className={({ isActive }) => getActiveClass(isActive)}
+        >
           Looking for
         </NavLink>
-        <NavLink to="/hiring" className={({ isActive }) => getActiveClass(isActive)}>
+        <NavLink
+          to="/hiring"
+          className={({ isActive }) => getActiveClass(isActive)}
+        >
           Hiring
         </NavLink>
         {children}

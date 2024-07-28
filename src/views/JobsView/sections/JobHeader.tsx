@@ -1,6 +1,8 @@
 import { memo } from 'react';
+
 import { ArrowDropDown } from '@mui/icons-material';
 import { Box, Typography } from '@mui/material';
+
 import { Counter } from '@/components';
 
 export const JobHeader = memo(() => {
